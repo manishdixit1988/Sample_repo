@@ -21,8 +21,8 @@ phases:
     commands:
       - echo "Build completed on `date`"
       - zip -r myapp.zip myapp
-go 
+go: 
 artifacts:
   files:
-    - myapp
-    - myapp.zip
+    -main
+    - main.zip
