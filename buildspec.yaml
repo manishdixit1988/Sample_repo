@@ -2,12 +2,27 @@ version: 0.2
 
 phases:
   install:
-    runtime-versions:
-      golang: 1.20
     commands:
       - echo "Starting installation..."
-      - echo "Go version: $(go version)"
-      - echo "GOPROXY: $GOPROXY"
-      - echo "GOPRIVATE: $GOPRIVATE"
       - go mod tidy
       - go mod download
+
+  pre_build:
+    commands:
+      - echo "Pre-build phase..."
+      - go vet ./...
+
+  build:
+    commands:
+      - echo "Building the application..."
+      - go build -o myapp
+
+  post_build:
+    commands:
+      - echo "Build completed on `date`"
+      - zip -r myapp.zip myapp
+
+artifacts:
+  files:
+    - myapp
+    - myapp.zip
