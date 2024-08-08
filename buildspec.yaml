@@ -1,28 +1,39 @@
-version: 0.2
+ersion: 0.2
+
+
 
 phases:
+
   install:
+
     commands:
-      - echo "Starting installation..."
-      - go mod tidy
-      - go mod download
+
+      - echo Nothing to do in the install phase
 
   pre_build:
+
     commands:
-      - echo "Pre-build phase..."
-      - go vet ./...
+
+      - echo Nothing to do in the pre_build phase
 
   build:
+
     commands:
-      - echo "Building the application..."
-      - go build -o myapp
+
+      - echo build started on 'date'
+
+      - mvn install
 
   post_build:
+
     commands:
-      - echo "Build completed on `date`"
-      - zip -r myapp.zip myapp
-go 
+
+      - echo build completed on 'date'
+
 artifacts:
+
   files:
-    - myapp
-    - myapp.zip
+
+    - 'target/ccdemo.war'
+
+Tail logs
