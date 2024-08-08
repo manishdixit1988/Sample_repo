@@ -12,8 +12,7 @@ phases:
       - echo "Starting build..."
   build:
     commands:
-      - echo "Building the Go project..."
-      - go build -o main.go # Compile the main.go file
+      - echo "Building the Go project..."     
   post_build:
     commands:
       - echo "Running the Go project..."
