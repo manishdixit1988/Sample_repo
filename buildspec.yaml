@@ -6,7 +6,7 @@ phases:
       golang: 1.18 # Specify the Go version
     commands:
       - echo "Installing Go dependencies..."
-      - go mod init hello-world # Initialize a new module if not already initialized
+      - go mod init main.go # Initialize a new module if not already initialized
       - go mod tidy # Clean up dependencies
   pre_build:
     commands:
@@ -14,12 +14,12 @@ phases:
   build:
     commands:
       - echo "Building the Go project..."
-      - go build -o hello-world main.go # Compile the main.go file
+      - go build -o main.go # Compile the main.go file
   post_build:
     commands:
       - echo "Running the Go project..."
-      - ./hello-world # Run the built binary
+      - ./main.go # Run the built binary
 
 artifacts:
   files:
-    - hello-world
+    - main.go
