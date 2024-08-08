@@ -2,27 +2,24 @@ version: 0.2
 
 phases:
   install:
+    runtime-versions:
+      go: 1.18 # Specify the Go version
     commands:
-      - echo "Starting installation..."
-      - go mod tidy
-      - go mod download
-
+      - echo "Installing Go dependencies..."
+      - go mod init hello-world # Initialize a new module if not already initialized
+      - go mod tidy # Clean up dependencies
   pre_build:
     commands:
-      - echo "Pre-build phase..."
-      - go vet ./...
-
+      - echo "Starting build..."
   build:
     commands:
-      - echo "Building the application..."
-      - go build -o myapp
-
+      - echo "Building the Go project..."
+      - go build -o hello-world main.go # Compile the main.go file
   post_build:
     commands:
-      - echo "Build completed on `date`"
-      - zip -r myapp.zip myapp
-go: 
+      - echo "Running the Go project..."
+      - ./hello-world # Run the built binary
+
 artifacts:
   files:
-    -main
-    - main.zip
+    - hello-world
