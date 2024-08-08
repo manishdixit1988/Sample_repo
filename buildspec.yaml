@@ -6,7 +6,7 @@ phases:
       golang: 1.18 # Specify the Go version
     commands:
       - echo "Installing Go dependencies..."
-      - go mod init github.com/manishdixit1988/devops_CICD # Initialize a new module if not already initialized
+      - go mod init # Initialize a new module if not already initialized
       - go mod tidy # Clean up dependencies
   pre_build:
     commands:
