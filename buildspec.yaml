@@ -16,8 +16,7 @@ phases:
   post_build:
     commands:
       - echo "Running the Go project..."
-      - ./main.go # Run the built binary
-
+      
 artifacts:
   files:
     - main.go
