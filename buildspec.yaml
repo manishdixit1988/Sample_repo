@@ -3,7 +3,7 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      go: 1.18 # Specify the Go version
+      golang: 1.18 # Specify the Go version
     commands:
       - echo "Installing Go dependencies..."
       - go mod init hello-world # Initialize a new module if not already initialized
