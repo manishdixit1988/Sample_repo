@@ -1,0 +1,38 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      golang: 1.16
+    commands:
+      - echo Installing dependencies...
+      - go mod download
+
+  pre_build:
+    commands:
+      - echo Pre-build phase...
+
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Compiling the Go code...
+      - go build -o myapp
+      - echo Running tests...
+      - go test ./...
+
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - echo Packaging the application...
+      - zip myapp.zip myapp
+
+artifacts:
+  files:
+    - myapp
+    - myapp.zip
+  discard-paths: yes
+
+cache:
+  paths:
+    - '/go/pkg/mod/**/*'
+    - '/root/.cache/go-build/**/*'
