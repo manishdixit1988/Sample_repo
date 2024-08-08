@@ -5,8 +5,7 @@ phases:
     runtime-versions:
       golang: 1.18 # Specify the Go version
     commands:
-      - echo "Installing Go dependencies..."
-      - go mod init # Initialize a new module if not already initialized
+      - echo "Installing Go dependencies..."      
       - go mod tidy # Clean up dependencies
   pre_build:
     commands:
